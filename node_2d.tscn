@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://c3akiswhvf4s0"]
 
-[ext_resource type="Script" uid="uid://bv6e6aqhsu4sa" path="res://scripts/node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://geid8ifeu1uu" path="res://path_follow_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://ceoviyjrmrl20" path="res://pngimg.com - fish_PNG10536.png" id="2_epypp"]
 
-[node name="Node2D" type="Node2D" unique_id=88391154]
-script = ExtResource("1_wtcfe")
+[sub_resource type="Curve2D" id="Curve2D_0hol4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 69, 107, 0, 0, 0, 0, 430, 17, 0, 0, 0, 0, 737, 110, 0, 0, 0, 0, 941, 357, 0, 0, 0, 0, 1038, 367, 0, 0, 0, 0, 1118, 578, 0, 0, 0, 0, 720, 591, 0, 0, 0, 0, 513, 334, 0, 0, 0, 0, 490, 484, 0, 0, 0, 0, 192, 561, 0, 0, 0, 0, 45, 591, 0, 0, 0, 0, 72, 93)
+}
+point_count = 12
+
+[node name="Gameboard" type="Node2D" unique_id=1348453291]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1265574985]
+curve = SubResource("Curve2D_0hol4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=311739594]
+position = Vector2(57.66175, 357.461)
+rotation = -1.5166324
+progress = 2908.0107
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=267804675]
+position = Vector2(8.341064, -9.979584)
+scale = Vector2(0.34076434, 0.34076434)
+texture = ExtResource("2_epypp")
