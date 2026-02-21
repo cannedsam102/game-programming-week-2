@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
 
-	position += direction * speed * delta
+	position += direction.normalized() * speed * delta
 	pass
