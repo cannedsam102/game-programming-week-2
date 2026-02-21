@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8c77b7uhhc6"]
+
+[ext_resource type="Texture2D" uid="uid://ceoviyjrmrl20" path="res://pngimg.com - fish_PNG10536.png" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://bm3iavbovi7nd" path="res://Player/Scripts/player.gd" id="1_q3lat"]
+
+[node name="Player" type="Node2D" unique_id=1986574620]
+script = ExtResource("1_q3lat")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=999963514]
+scale = Vector2(0.2361996, 0.23619959)
+texture = ExtResource("1_3qydi")
