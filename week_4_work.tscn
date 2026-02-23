@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://4cfvk71q5o6j"]
+
+[ext_resource type="Texture2D" uid="uid://df7y81sb7vq6b" path="res://icon.svg" id="1_h3588"]
+[ext_resource type="Script" uid="uid://dk47ta86woa8e" path="res://Player/Scripts/player-characterbody.gd" id="2_53nro"]
+[ext_resource type="Script" uid="uid://csli3vp724oai" path="res://area_2d.gd" id="3_vcfem"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_53nro"]
+distance = -141.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3588"]
+size = Vector2(130, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53nro"]
+size = Vector2(62, 161)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xr8bl"]
+radius = 64.77654
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfem"]
+size = Vector2(272, 274)
+
+[node name="Week 4 Work" type="Node2D" unique_id=1047902204]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1894831467]
+position = Vector2(575, 446)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=753015145]
+shape = SubResource("WorldBoundaryShape2D_53nro")
+
+[node name="Box" type="RigidBody2D" parent="." unique_id=110235087]
+position = Vector2(567, 171)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=27455299]
+shape = SubResource("RectangleShape2D_h3588")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=509336677]
+texture = ExtResource("1_h3588")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=536482531]
+position = Vector2(164, 325)
+collision_layer = 3
+script = ExtResource("2_53nro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1604263050]
+position = Vector2(0, -79.5)
+shape = SubResource("RectangleShape2D_53nro")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1627930391]
+modulate = Color(0.10980392, 0.40784314, 0.2901961, 1)
+position = Vector2(0, -79)
+scale = Vector2(0.4609375, 1.2382813)
+texture = ExtResource("1_h3588")
+
+[node name="State_Label" type="Label" parent="Player" unique_id=1467105039]
+offset_left = -20.0
+offset_top = -183.0
+offset_right = 20.0
+offset_bottom = -160.0
+text = "State
+"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=355300512]
+position = Vector2(929, 263)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_vcfem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1844066267]
+position = Vector2(-546, 196)
+shape = SubResource("CircleShape2D_xr8bl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1946600492]
+position = Vector2(179, 461)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1507016598]
+shape = SubResource("RectangleShape2D_vcfem")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1943218287]
+scale = Vector2(2.1171875, 2.1171875)
+texture = ExtResource("1_h3588")
