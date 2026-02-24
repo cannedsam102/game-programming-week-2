@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process( delta: float) -> void:
+func _process( _delta: float) -> void:
 	state_label.text = str(is_on_floor())
 	pass
 	
@@ -35,5 +35,7 @@ func _physics_process( delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-		
+
+func die () -> void:
+	print("Player Died!")
 		

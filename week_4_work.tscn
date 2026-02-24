@@ -2,39 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://df7y81sb7vq6b" path="res://icon.svg" id="1_h3588"]
 [ext_resource type="Script" uid="uid://dk47ta86woa8e" path="res://Player/Scripts/player-characterbody.gd" id="2_53nro"]
-[ext_resource type="Script" uid="uid://csli3vp724oai" path="res://area_2d.gd" id="3_vcfem"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_53nro"]
-distance = -141.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3588"]
-size = Vector2(130, 132)
+[ext_resource type="Script" uid="uid://mk5t313mslfg" path="res://kill_box.gd" id="3_vcfem"]
+[ext_resource type="Script" uid="uid://dmpxasbh6ix8r" path="res://goal.gd" id="4_xr8bl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53nro"]
 size = Vector2(62, 161)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xr8bl"]
-radius = 64.77654
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfem"]
 size = Vector2(272, 274)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8bl"]
+size = Vector2(1219, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h23pw"]
+size = Vector2(198, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l5v2"]
+size = Vector2(200, 94)
+
 [node name="Week 4 Work" type="Node2D" unique_id=1047902204]
-
-[node name="Floor" type="StaticBody2D" parent="." unique_id=1894831467]
-position = Vector2(575, 446)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=753015145]
-shape = SubResource("WorldBoundaryShape2D_53nro")
-
-[node name="Box" type="RigidBody2D" parent="." unique_id=110235087]
-position = Vector2(567, 171)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=27455299]
-shape = SubResource("RectangleShape2D_h3588")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=509336677]
-texture = ExtResource("1_h3588")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=536482531]
 position = Vector2(164, 325)
@@ -59,16 +45,6 @@ offset_bottom = -160.0
 text = "State
 "
 
-[node name="Area2D" type="Area2D" parent="." unique_id=355300512]
-position = Vector2(929, 263)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("3_vcfem")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1844066267]
-position = Vector2(-546, 196)
-shape = SubResource("CircleShape2D_xr8bl")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1946600492]
 position = Vector2(179, 461)
 
@@ -78,3 +54,33 @@ shape = SubResource("RectangleShape2D_vcfem")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1943218287]
 scale = Vector2(2.1171875, 2.1171875)
 texture = ExtResource("1_h3588")
+
+[node name="Kill_Box" type="Area2D" parent="." unique_id=460921553]
+position = Vector2(598, 668)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_vcfem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill_Box" unique_id=616687434]
+shape = SubResource("RectangleShape2D_xr8bl")
+
+[node name="GoalIsland" type="StaticBody2D" parent="." unique_id=1687609829]
+position = Vector2(738, 608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalIsland" unique_id=1854437818]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_h23pw")
+
+[node name="Sprite2D" type="Sprite2D" parent="GoalIsland" unique_id=1610219722]
+scale = Vector2(1.5625, 0.625)
+texture = ExtResource("1_h3588")
+
+[node name="Goal" type="Area2D" parent="." unique_id=636735440]
+position = Vector2(746, 538)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_xr8bl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=221168502]
+position = Vector2(-8, -13)
+shape = SubResource("RectangleShape2D_6l5v2")
